@@ -1,0 +1,72 @@
+﻿@model OrderFormViewModel
+@{
+    ViewData["Title"] = "Order Form Page";
+}
+
+    <div class="text-center">
+
+
+
+        @using (Html.BeginForm())
+        {
+            <fieldset>
+                <legend>Microsoft Corp</legend>
+                <br />
+            </fieldset>
+        }
+
+        @using (Html.BeginForm())
+        {
+            <br />
+            <br />
+            <fieldset>
+                <legend>Create order</legend>
+
+                <br />
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.OrderType) (0=Buy, 1=Sell)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.OrderType)
+                </div>
+                <br />
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.StockId)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.StockId, new { @Value = "1" })
+                </div>
+                <br />
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.UserId)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.UserId, new { @Value = "1" })
+                </div>
+                <br />
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Amount)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.Amount, new { @Value = "100" })
+                </div>
+                <br />
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.PriceLimit)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.PriceLimit, new { @Value = "187.00" })
+                </div>
+                <br />
+
+                <input type="submit" value="Submit order" />
+            </fieldset>
+        }
+    </div>
+
+
+

@@ -1,0 +1,78 @@
+﻿@model OrderDepthViewModel
+@{
+    ViewData["Title"] = "Order Depth View Page";
+}
+
+<div class="text-center">
+
+
+
+    @using (Html.BeginForm())
+    {
+        <fieldset>
+            <legend>Microsoft Corp</legend>
+        </fieldset>
+
+        <br />
+        <br />
+        <fieldset>
+            <legend>Order depth</legend>
+
+            <br />
+            <br />
+            <table align="center">
+                <tr>
+
+                    <td valign="top">
+                    <table align="center">
+                        <tr>
+                            <th>Amount</th>
+                            <th>Buy</th>
+                        </tr>
+
+                        @if (Model.OrderBuy != null)
+                        {
+                            @foreach (var item in Model.OrderBuy)
+                            {
+                                <tr>
+                                    <td>@item.StockCount</td>
+                                    <td>@item.PriceLimit</td>
+                                </tr>
+                            }
+                        }
+                    </table>
+                    </td>
+                    <td  valign="top">
+                        <table align="center">
+                            <tr>
+                                <th>Sell</th>
+                                <th>Amount</th>
+                            </tr>
+
+                            @if (Model.OrderSell != null)
+                            {
+                                @foreach (var item in Model.OrderSell)
+                                {
+                                    <tr>
+                                        <td>@item.PriceLimit</td>
+                                        <td>@item.StockCount</td>
+                                    </tr>
+                                }
+                            }
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+            <br />
+            <br />
+
+            <input type="submit" value="Update" />
+
+        </fieldset>
+
+    }
+</div>
+
+
+

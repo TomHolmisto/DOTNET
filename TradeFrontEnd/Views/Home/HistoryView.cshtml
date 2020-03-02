@@ -1,0 +1,58 @@
+﻿@model HistoryViewModel
+@{
+    ViewData["Title"] = "Order History Page";
+}
+
+    <div class="text-center">
+
+
+
+        @using (Html.BeginForm())
+        {
+            <fieldset>
+                <legend>Microsoft Corp</legend>
+            </fieldset>
+
+            <br />
+            <br />
+            <fieldset>
+                <legend>Latest trades</legend>
+
+                <br />
+                <br />
+                <table align="center">
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                        <th>Buyer</th>
+                        <th>Seller</th>
+                    </tr>
+
+                    @if (Model.HistoryResult != null)
+                    {
+                        @foreach (var item in Model.HistoryResult.Histories)
+                        {
+                <tr>
+                    <td>@item.Created</td>
+                    <td>@item.Price</td>
+                    <td>@item.StockCount</td>
+                    <td>@item.BuyerID</td>
+                    <td>@item.SellerID</td>
+                </tr>
+                        }
+                    }
+
+                </table>
+                <br />
+                <br />
+
+                <input type="submit" value="Update history" />
+
+            </fieldset>
+
+        }
+    </div>
+
+
+
